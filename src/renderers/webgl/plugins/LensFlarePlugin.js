@@ -271,7 +271,7 @@ THREE.LensFlarePlugin = function ( renderer, flares ) {
 	 *         reads these back and calculates occlusion.
 	 */
 
-	this.render = function ( scene, camera, viewportWidth, viewportHeight ) {
+	this.render = function ( scene, camera, viewportX, viewportY, viewportWidth, viewportHeight ) {
 
 		if ( flares.length === 0 ) return;
 
@@ -331,8 +331,8 @@ THREE.LensFlarePlugin = function ( renderer, flares ) {
 
 			screenPosition.copy( tempPosition )
 
-			screenPositionPixels.x = screenPosition.x * halfViewportWidth + halfViewportWidth;
-			screenPositionPixels.y = screenPosition.y * halfViewportHeight + halfViewportHeight;
+			screenPositionPixels.x = viewportX + screenPosition.x * halfViewportWidth + halfViewportWidth;
+			screenPositionPixels.y = viewportY + screenPosition.y * halfViewportHeight + halfViewportHeight;
 
 			// screen cull
 

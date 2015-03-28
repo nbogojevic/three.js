@@ -3390,7 +3390,7 @@ THREE.WebGLRenderer = function ( parameters ) {
 		// custom render plugins (post pass)
 
 		spritePlugin.render( scene, camera );
-		lensFlarePlugin.render( scene, camera, _currentWidth, _currentHeight );
+		lensFlarePlugin.render( scene, camera, _viewportX, _viewportY, _currentWidth, _currentHeight );
 
 		// Generate mipmap if we're using any kind of mipmap filtering
 
